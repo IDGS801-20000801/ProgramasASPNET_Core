@@ -1,0 +1,355 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mt-4">
+    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#modalPractica1" style="background-color: #007bff; border-color: #007bff;">
+        Práctica 1
+    </button>
+    <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#modalPractica2" style="background-color: #28a745; border-color: #28a745;">
+        Práctica 2
+    </button>
+    <button type="button" class="btn btn-info m-2" data-bs-toggle="modal" data-bs-target="#modalPractica3" style="background-color: #17a2b8; border-color: #17a2b8;">
+        Práctica 3
+    </button>
+    <button type="button" class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#modalPractica4" style="background-color: #ffc107; border-color: #ffc107;">
+        Práctica 4
+    </button>
+</div>
+
+<!-- Modales -->
+<div class="modal fade" id="modalPractica1" tabindex="-1" aria-labelledby="modalPractica1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-light">
+                <h5 class="modal-title" id="modalPractica1Label">Práctica 1 - Índice de Masa Corporal (IMC)</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="imcForm">
+                    <div class="mb-3">
+                        <label for="peso" class="form-label">Peso (kg):</label>
+                        <input type="number" class="form-control" id="peso" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="altura" class="form-label">Altura (cm):</label>
+                        <input type="number" class="form-control" id="altura" required>
+                    </div>
+                    <div id="resultadoIMC" class="mb-3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calcular IMC</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPractica2" tabindex="-1" aria-labelledby="modalPractica2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="modalPractica2Label">Práctica 2 - Cifrado y Descifrado Rotacional</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="cifradoForm">
+                    <div class="mb-3">
+                        <label for="textoOriginal" class="form-label">Texto Original:</label>
+                        <input type="text" class="form-control" id="textoOriginal" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="desplazamiento" class="form-label">Desplazamiento:</label>
+                        <input type="number" class="form-control" id="desplazamiento" required>
+                    </div>
+                    <div id="resultadoCifrado" class="mb-3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Codificar / Decodificar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPractica3" tabindex="-1" aria-labelledby="modalPractica3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-light">
+                <h5 class="modal-title fw-bold" id="modalPractica3Label">Práctica 3 - Cálculo Binomial</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="binomialForm">
+                    <div class="mb-3">
+                        <label for="inputA" class="form-label fw-bold">Valor de a:</label>
+                        <input type="number" class="form-control" id="inputA" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputB" class="form-label fw-bold">Valor de b:</label>
+                        <input type="number" class="form-control" id="inputB" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputX" class="form-label fw-bold">Valor de x:</label>
+                        <input type="number" class="form-control" id="inputX" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputY" class="form-label fw-bold">Valor de y:</label>
+                        <input type="number" class="form-control" id="inputY" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputN" class="form-label fw-bold">Valor de n:</label>
+                        <input type="number" class="form-control" id="inputN" required>
+                    </div>
+                    <div id="resultadoCalculoBinomial" class="mb-3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPractica4" tabindex="-1" aria-labelledby="modalPractica4Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title fw-bold" id="modalPractica4Label">Práctica 4 - Estadísticas de Números Aleatorios</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <p class="fw-bold" id="numerosAleatorios">Arreglo Aleatorio:</p>
+                    <p id="arregloAleatorio" class="mb-3"></p>
+                </div>
+                <div class="mb-3">
+                    <p class="fw-bold" id="suma">Suma:</p>
+                    <p id="resultadoSuma" class="mb-3"></p>
+                </div>
+                <div class="mb-3">
+                    <p class="fw-bold" id="promedio">Promedio:</p>
+                    <p id="resultadoPromedio" class="mb-3"></p>
+                </div>
+                <div class="mb-3">
+                    <p class="fw-bold" id="arregloOrdenado">Arreglo Ordenado:</p>
+                    <p id="resultadoOrdenado" class="mb-3"></p>
+                </div>
+                <div class="mb-3">
+                    <p class="fw-bold" id="moda">Moda:</p>
+                    <p id="resultadoModa" class="mb-3"></p>
+                </div>
+                <div class="mb-3">
+                    <p class="fw-bold" id="mediana">Mediana:</p>
+                    <p id="resultadoMediana" class="mb-3"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#imcForm').submit(function (e) {
+            e.preventDefault();
+            var peso = parseFloat($('#peso').val());
+            var altura = parseFloat($('#altura').val()) / 100;
+            var imc = peso / (altura * altura);
+            var resultado = '';
+
+            if (!isNaN(imc)) {
+                resultado = 'Tu IMC es ' + imc.toFixed(2) + '. ';
+                if (imc < 18) {
+                    resultado += 'Tienes peso bajo.';
+                    $('#resultadoIMC').html('<div class="alert alert-info mt-2" role="alert">Peso Bajo: IMC menor a 18</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                } else if (imc < 25) {
+                    resultado += 'Tienes peso normal.';
+                    $('#resultadoIMC').html('<div class="alert alert-success mt-2" role="alert">Peso Normal: IMC entre 18 y menor a 25</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                } else if (imc < 27) {
+                    resultado += 'Tienes sobrepeso.';
+                    $('#resultadoIMC').html('<div class="alert alert-warning mt-2" role="alert">Sobrepeso: IMC entre 25 y menor a 27</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                } else if (imc < 30) {
+                    resultado += 'Tienes obesidad grado I.';
+                    $('#resultadoIMC').html('<div class="alert alert-warning mt-2" role="alert">Obesidad grado I: IMC entre 27 y menor a 30</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                } else if (imc < 40) {
+                    resultado += 'Tienes obesidad grado II.';
+                    $('#resultadoIMC').html('<div class="alert alert-danger mt-2" role="alert">Obesidad grado II: IMC entre 30 y menor a 40</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                } else {
+                    resultado += 'Tienes obesidad grado III.';
+                    $('#resultadoIMC').html('<div class="alert alert-danger mt-2" role="alert">Obesidad grado III: IMC mayor o igual a 40</div>');
+                    $('#resultadoIMC').append('<img src="https://via.placeholder.com/300" class="img-fluid mt-2">');
+                }
+            } else {
+                resultado = 'Por favor ingresa un peso y altura válidos.';
+            }
+
+            $('#resultadoIMC').prepend('<div class="alert alert-primary mt-2" role="alert">' + resultado + '</div>');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#cifradoForm').submit(function (e) {
+            e.preventDefault();
+            var textoOriginal = $('#textoOriginal').val();
+            var desplazamiento = parseInt($('#desplazamiento').val());
+
+            var textoCifrado = codificarTexto(textoOriginal, desplazamiento);
+            var textoDescifrado = decodificarTexto(textoCifrado, desplazamiento);
+
+            $('#resultadoCifrado').html('<div class="alert alert-primary mt-2" role="alert">Texto Cifrado: ' + textoCifrado + '</div>');
+            $('#resultadoCifrado').append('<div class="alert alert-success mt-2" role="alert">Texto Descifrado: ' + textoDescifrado + '</div>');
+        });
+
+        function codificarTexto(texto, desplazamiento) {
+            var resultado = "";
+            for (var i = 0; i < texto.length; i++) {
+                var caracter = texto.charAt(i);
+                if (caracter.match(/[a-z]/i)) {
+                    var codigoCaracter = texto.charCodeAt(i);
+                    var codigoBase = (codigoCaracter < 91) ? 65 : 97;
+                    caracter = String.fromCharCode((codigoCaracter - codigoBase + desplazamiento) % 26 + codigoBase);
+                }
+                resultado += caracter;
+            }
+            return resultado;
+        }
+
+        function decodificarTexto(texto, desplazamiento) {
+            return codificarTexto(texto, (26 - desplazamiento) % 26);
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#binomialForm').submit(function (e) {
+            e.preventDefault();
+
+            var a = parseFloat($('#inputA').val());
+            var b = parseFloat($('#inputB').val());
+            var x = parseFloat($('#inputX').val());
+            var y = parseFloat($('#inputY').val());
+            var n = parseInt($('#inputN').val());
+
+            var result = calculateBinomial(a, b, x, y, n);
+            $('#resultadoCalculoBinomial').html('<div class="alert alert-primary mt-2" role="alert">Resultado: ' + result.toFixed(2) + '</div>');
+        });
+
+        function calculateBinomial(a, b, x, y, n) {
+            var result = 0;
+            for (var k = 0; k <= n; k++) {
+                result += binomialCoefficient(n, k) * Math.pow(a * x, n - k) * Math.pow(b * y, k);
+            }
+            return result;
+        }
+
+        function binomialCoefficient(n, k) {
+            return factorial(n) / (factorial(k) * factorial(n - k));
+        }
+
+        function factorial(number) {
+            if (number === 0) return 1;
+            var result = 1;
+            for (var i = 1; i <= number; i++) {
+                result *= i;
+            }
+            return result;
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#modalPractica4').on('show.bs.modal', function (e) {
+            var numerosAleatorios = generarNumerosAleatorios();
+            var suma = calcularSuma(numerosAleatorios);
+            var promedio = calcularPromedio(numerosAleatorios);
+            var arregloOrdenado = ordenarArreglo(numerosAleatorios);
+            var moda = calcularModa(numerosAleatorios);
+            var mediana = calcularMediana(numerosAleatorios);
+
+            $('#numerosAleatorios').text('Arreglo Aleatorio: ' + numerosAleatorios.join(' '));
+            $('#suma').text('Suma: ' + suma);
+            $('#promedio').text('Promedio: ' + promedio.toFixed(2));
+            $('#arregloOrdenado').text('Arreglo Ordenado: ' + arregloOrdenado.join(' '));
+            $('#moda').text('Moda: ' + moda.join(' y '));
+            $('#mediana').text('Mediana: ' + mediana);
+        });
+
+        function generarNumerosAleatorios() {
+            var numeros = [];
+            for (var i = 0; i < 20; i++) {
+                numeros.push(Math.floor(Math.random() * 101));
+            }
+            return numeros;
+        }
+
+        function calcularSuma(numeros) {
+            return numeros.reduce(function (a, b) { return a + b; }, 0);
+        }
+
+        function calcularPromedio(numeros) {
+            var suma = calcularSuma(numeros);
+            return suma / numeros.length;
+        }
+
+        function ordenarArreglo(numeros) {
+            return numeros.sort(function (a, b) { return a - b; });
+        }
+
+        function calcularModa(numeros) {
+            var moda = {};
+            var maxCount = 0;
+            var result = [];
+
+            numeros.forEach(function (numero) {
+                if (moda[numero.toString()]) {
+                    moda[numero.toString()]++;
+                } else {
+                    moda[numero.toString()] = 1;
+                }
+
+                if (moda[numero.toString()] > maxCount) {
+                    maxCount = moda[numero.toString()];
+                }
+            });
+
+            for (var key in moda) {
+                if (moda[key] === maxCount) {
+                    result.push(parseInt(key));
+                }
+            }
+
+            return result;
+        }
+
+        function calcularMediana(numeros) {
+            var sorted = ordenarArreglo(numeros);
+            var middle = Math.floor(sorted.length / 2);
+
+            if (sorted.length % 2 === 0) {
+                return (sorted[middle - 1] + sorted[middle]) / 2;
+            } else {
+                return sorted[middle];
+            }
+        }
+    });
+</script>
